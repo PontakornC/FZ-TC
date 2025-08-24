@@ -212,36 +212,8 @@ h2 {
   font-weight: 600;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
-  
-  .position-header {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-  
-  .stats-table {
-    font-size: 12px;
-  }
-  
-  .stats-table th,
-  .stats-table td {
-    padding: 8px 6px;
-  }
-  
-  .stat-input {
-    width: 60px;
-    font-size: 14px;
-  }
-  .input-cell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+.input-cell {
+  text-align: center;
 }
 
 .upgrade-btn {
@@ -277,4 +249,170 @@ h2 {
   color: #343a40;
   font-size: 16px;
 }
+
+/* Fixed upgrade column styling */
+.upgrade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  h2 {
+    font-size: 18px;
+  }
+  
+  .position-btn {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  
+  .position-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .position-header h3 {
+    font-size: 20px;
+  }
+  
+  .ovr-display {
+    font-size: 16px;
+  }
+  
+  .ovr-value {
+    font-size: 20px;
+    margin-left: 4px;
+  }
+  
+  .stats-table {
+    font-size: 12px;
+  }
+  
+  .stats-table th,
+  .stats-table td {
+    padding: 8px 4px;
+  }
+  
+  .stats-table th:first-child {
+    width: 30%;
+  }
+  
+  .stats-table th:nth-child(2) {
+    width: 15%;
+  }
+  
+  .stats-table th:nth-child(3) {
+    width: 25%;
+  }
+  
+  .stats-table th:last-child {
+    width: 30%;
+  }
+  
+  .stat-input {
+    width: 50px;
+    font-size: 14px;
+    padding: 6px 8px;
+  }
+  
+  .upgrade {
+    gap: 4px;
+    padding: 4px !important;
+  }
+  
+  .upgrade-btn {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+  
+  .upgrade-value {
+    width: 20px;
+    font-size: 14px;
+  }
+  
+  .total-label {
+    font-size: 14px;
+    padding: 12px 4px;
+  }
+  
+  .total-ovr {
+    font-size: 16px;
+    padding: 12px 4px;
+  }
+  
+  .no-selection {
+    font-size: 16px;
+    padding: 40px 15px;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+  
+  h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .position-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  .stats-table {
+    font-size: 11px;
+  }
+  
+  .stats-table th,
+  .stats-table td {
+    padding: 6px 2px;
+  }
+  
+  .stat-input {
+    width: 45px;
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+  
+  .upgrade-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+  
+  .upgrade-value {
+    width: 18px;
+    font-size: 12px;
+  }
+  
+  .upgrade {
+    gap: 2px;
+  }
+  
+  .total-label {
+    font-size: 12px;
+  }
+  
+  .total-ovr {
+    font-size: 14px;
+  }
 }
