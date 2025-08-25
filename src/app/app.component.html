@@ -40,6 +40,8 @@
               type="number" 
               [(ngModel)]="stat.value" 
               (input)="calculateOVR(selectedPosition!)" 
+              (keydown)="handleKeyDown($event, i)" 
+              #statInput
               placeholder=""
               class="stat-input"
             />

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { Position, positions } from './positions.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -45,5 +45,24 @@ export class AppComponent {
     
     position.ovr = totalWeight > 0 ? +(weightedSum / totalWeight).toFixed(2) : 0;
     return position.ovr;
+  }
+
+  @ViewChildren('statInput') statInputs!: QueryList<ElementRef<HTMLInputElement>>;
+  handleKeyDown(event: KeyboardEvent, index: number) {
+    const inputs = this.statInputs.toArray();
+
+    if (event.key === 'Enter' || event.key === 'ArrowDown') {
+      event.preventDefault();
+      if (index < inputs.length - 1) {
+        inputs[index + 1].nativeElement.focus();
+      }
+    }
+
+    if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      if (index > 0) {
+        inputs[index - 1].nativeElement.focus();
+      }
+    }
   }
 }
