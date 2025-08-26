@@ -1,5 +1,12 @@
 <div class="container" ngSkipHydration>
-  <h1>{{ title }} - คำนวณ OVR นักเตะ</h1>
+  <!-- Header with title and theme toggle -->
+  <div class="header">
+    <h1>{{ title }} - คำนวณ OVR นักเตะ</h1>
+    <button class="theme-toggle" (click)="toggleTheme()">
+      <i [class]="isDarkMode ? 'fas fa-sun' : 'fas fa-moon'"></i>
+      {{ isDarkMode ? 'Light' : 'Dark' }}
+    </button>
+  </div>
   
   <!-- Position Selection -->
   <div class="position-selector">
@@ -46,14 +53,14 @@
               class="stat-input"
             />
           </td>
-          <td class="upgrade">
-            <button type="button" class="upgrade-btn minus" (click)="upgradeDown(stat)">
+          <td >
+            <div class="upgrade"><button type="button" class="upgrade-btn minus" (click)="upgradeDown(stat)">
               <i class="fa fa-minus"></i>
             </button>
             <span class="upgrade-value">{{ stat.upgrade }}</span>
             <button type="button" class="upgrade-btn plus" (click)="upgradeUp(stat)">
               <i class="fa fa-plus"></i>
-            </button>
+            </button></div>            
           </td>
         </tr>
       </tbody>

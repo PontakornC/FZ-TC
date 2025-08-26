@@ -1,4 +1,5 @@
-import { Component, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Component, ViewChildren, QueryList, ElementRef, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Position, positions } from './positions.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -10,10 +11,22 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'FZ-TC';
   positions: Position[] = positions;
   selectedPosition: Position | null = null;
+  isDarkMode = false;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      // Load theme preference from localStorage
+      const savedTheme = localStorage.getItem('theme');
+      this.isDarkMode = savedTheme === 'dark';
+      this.applyTheme();
+    }
+  }
 
   selectPosition(position: Position): void {
     this.selectedPosition = position;
@@ -47,8 +60,30 @@ export class AppComponent {
     return position.ovr;
   }
 
+  toggleTheme(): void {
+    this.isDarkMode = !this.isDarkMode;
+    this.applyTheme();
+    
+    if (isPlatformBrowser(this.platformId)) {
+      // Save theme preference to localStorage
+      localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
+    }
+  }
+
+  private applyTheme(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      const body = document.body;
+      if (this.isDarkMode) {
+        body.setAttribute('data-theme', 'dark');
+      } else {
+        body.removeAttribute('data-theme');
+      }
+    }
+  }
+
   @ViewChildren('statInput') statInputs!: QueryList<ElementRef<HTMLInputElement>>;
-  handleKeyDown(event: KeyboardEvent, index: number) {
+  
+  handleKeyDown(event: KeyboardEvent, index: number): void {
     const inputs = this.statInputs.toArray();
 
     if (event.key === 'Enter' || event.key === 'ArrowDown') {
