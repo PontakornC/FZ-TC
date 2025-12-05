@@ -151,7 +151,6 @@ export const positions: Position[] = [
       { name: 'เข้าปะทะ', value: null, weight: 13, upgrade: 0 },
       { name: 'ส่งสั้น', value: null, weight: 5, upgrade: 0 },
       { name: 'โหม่งบอล', value: null, weight: 10, upgrade: 0 },
-      { name: 'ปฏิกิริยา', value: null, weight: 5, upgrade: 0 },
       { name: 'เข้าสกัด', value: null, weight: 14, upgrade: 0 },
       { name: 'ปฏิกิริยา', value: null, weight: 5, upgrade: 0 },
       { name: 'ดุดัน', value: null, weight: 7, upgrade: 0 },
